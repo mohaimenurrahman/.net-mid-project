@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "AddBuildings";
+}
+
+<h2>AddBuildings</h2>
+
+<from action="/Colony/AddBuildings" method="post">
+    <input type="text" name="colonyCode" placeholder="COLONY CODE" class="form-control" />
+    <input type="text" name="username" placeholder="USERNAME" class="form-control" />
+    <input type="text" name="buildingName" placeholder="BUILDING NAME" class="form-control" />
+    <input type="text" name="buildingCode" placeholder="BUILDING CODE" class="form-control" />
+    <input type="submit" value="Add" />
+
+</from>
