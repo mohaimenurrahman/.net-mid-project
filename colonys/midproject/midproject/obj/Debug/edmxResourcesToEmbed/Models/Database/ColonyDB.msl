@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bdatabaseModelStoreContainer" CdmEntityContainer="bdatabaseEntities">
+    <EntitySetMapping Name="buildingDetails">
+      <EntityTypeMapping TypeName="bdatabaseModel.buildingDetail">
+        <MappingFragment StoreEntitySet="buildingDetails">
+          <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+          <ScalarProperty Name="floorDetails" ColumnName="floorDetails" />
+          <ScalarProperty Name="flatNo" ColumnName="flatNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="buildings">
+      <EntityTypeMapping TypeName="bdatabaseModel.building">
+        <MappingFragment StoreEntitySet="buildings">
+          <ScalarProperty Name="colonyCode" ColumnName="colonyCode" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="buildingName" ColumnName="buildingName" />
+          <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="colonys">
+      <EntityTypeMapping TypeName="bdatabaseModel.colony">
+        <MappingFragment StoreEntitySet="colonys">
+          <ScalarProperty Name="colonyCode" ColumnName="colonyCode" />
+          <ScalarProperty Name="colonyName" ColumnName="colonyName" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="currentBills">
+      <EntityTypeMapping TypeName="bdatabaseModel.currentBill">
+        <MappingFragment StoreEntitySet="currentBills">
+          <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+          <ScalarProperty Name="flatNumber" ColumnName="flatNumber" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="dstart" ColumnName="dstart" />
+          <ScalarProperty Name="dend" ColumnName="dend" />
+          <ScalarProperty Name="unitAmount" ColumnName="unitAmount" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="flatNumbers">
+      <EntityTypeMapping TypeName="bdatabaseModel.flatNumber">
+        <MappingFragment StoreEntitySet="flatNumbers">
+          <ScalarProperty Name="flatSize" ColumnName="flatSize" />
+          <ScalarProperty Name="flatNumber1" ColumnName="flatNumber" />
+          <ScalarProperty Name="rentStatus" ColumnName="rentStatus" />
+          <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+          <ScalarProperty Name="flatRenterName" ColumnName="flatRenterName" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="flatRents">
+      <EntityTypeMapping TypeName="bdatabaseModel.flatRent">
+        <MappingFragment StoreEntitySet="flatRents">
+          <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+          <ScalarProperty Name="flatNumber" ColumnName="flatNumber" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="dstart" ColumnName="dstart" />
+          <ScalarProperty Name="dend" ColumnName="dend" />
+          <ScalarProperty Name="unitAmount" ColumnName="unitAmount" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="bdatabaseModel.login">
+        <MappingFragment StoreEntitySet="logins">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="bdatabaseModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="bdatabaseModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="mobileNumber" ColumnName="mobileNumber" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="division" ColumnName="division" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wasaBills">
+      <EntityTypeMapping TypeName="bdatabaseModel.wasaBill">
+        <MappingFragment StoreEntitySet="wasaBills">
+          <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+          <ScalarProperty Name="flatNumber" ColumnName="flatNumber" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="dstart" ColumnName="dstart" />
+          <ScalarProperty Name="dend" ColumnName="dend" />
+          <ScalarProperty Name="unitAmount" ColumnName="unitAmount" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="bdatabaseModel.employee">
+        <MappingFragment StoreEntitySet="employees">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="empId" ColumnName="empId" />
+          <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+          <ScalarProperty Name="resignDate" ColumnName="resignDate" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subscriptions">
+      <EntityTypeMapping TypeName="bdatabaseModel.subscription">
+        <MappingFragment StoreEntitySet="subscriptions">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="paymentstatus" ColumnName="paymentstatus" />
+          <ScalarProperty Name="DOP" ColumnName="DOP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subUsers">
+      <EntityTypeMapping TypeName="bdatabaseModel.subUser">
+        <MappingFragment StoreEntitySet="subUsers">
+          <ScalarProperty Name="colonyCode" ColumnName="colonyCode" />
+          <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+          <ScalarProperty Name="flatNumber" ColumnName="flatNumber" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="members" ColumnName="members" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

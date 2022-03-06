@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d326d0a985e42dfa9cf9a9cbf8647da" Name="Diagram1">
+        <EntityTypeShape EntityType="bdatabaseModel.buildingDetail" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.building" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.colony" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.currentBill" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.flatNumber" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.flatRent" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.login" Width="1.5" PointX="7.5" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.user" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.wasaBill" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.employee" Width="1.5" PointX="7.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.subscription" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdatabaseModel.subUser" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="bdatabaseModel.FK_buildingDetails_flatNumbers" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_buildings_buildingDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_currentBills_buildingDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_flatRents_buildingDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_wasaBills_buildingDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_colonys_buildings" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_subUsers_buildings" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_colonys_users" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_subUsers_colonys" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_logins_users" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_employees_users" ManuallyRouted="false" />
+        <AssociationConnector Association="bdatabaseModel.FK_subscriptions_users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
