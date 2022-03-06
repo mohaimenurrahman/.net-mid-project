@@ -1,0 +1,27 @@
+﻿@model List< midproject.Models.Database.building >
+@{
+    ViewBag.Title = "Buildings";
+}
+
+<h2>Buildings</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>COLONY CODE</th>
+        <th>USERNAME</th>
+        <th>BUILDING NAME</th>
+        <th>BUILDING CODE</th>
+    </tr>
+
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.colonyCode</td>
+            <td>@c.username</td>
+            <td>@c.buildingName</td>
+            <td>@c.buildingCode</td>
+        </tr>
+    }
+
+</table>
+
