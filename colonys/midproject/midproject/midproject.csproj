@@ -245,6 +245,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Colony\Buildings.cshtml" />
     <Content Include="Views\Colony\AddBuildings.cshtml" />
+    <Content Include="Views\Colony\BuildingDetails.cshtml" />
+    <Content Include="Views\Colony\Create.cshtml" />
+    <Content Include="Views\Colony\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

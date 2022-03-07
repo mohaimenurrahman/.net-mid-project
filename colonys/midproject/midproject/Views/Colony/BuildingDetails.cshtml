@@ -1,0 +1,35 @@
+﻿@model List<midproject.Models.Database.buildingDetail>
+@{
+    ViewBag.Title = "BuildingDetails";
+}
+
+<h2>BuildingDetails</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>BUILDING CODE</th>
+        <th>FLOOR DETAILS</th>
+        <th>FLAT NO</th>
+        <th>Edit</th>
+       
+
+
+
+
+
+    </tr>
+
+    @foreach (var b in Model)
+    {
+<tr>
+    <td>@b.buildingCode</td>
+    <td>@b.floorDetails</td>
+    <td>@b.flatNo</td>
+    <td><a href="/Colony/Edit/@b.buildingCode" class="btn btn-success">Edit</a> </td>
+    
+
+</tr>
+    }
+
+</table>
+
