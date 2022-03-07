@@ -10,6 +10,7 @@ namespace midproject.Controllers
     public class ColonyController : Controller
     {
         // GET: Colony
+        
         public ActionResult Buildings()
         {
             bdatabaseEntities db = new bdatabaseEntities();
@@ -89,6 +90,29 @@ namespace midproject.Controllers
                 return RedirectToAction("BuildingDetails");
             }
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Delete(string id)
+        {
+            bdatabaseEntities db = new bdatabaseEntities();
+            var data = (from b in db.buildingDetails
+                        where b.buildingCode == id
+                        select b).FirstOrDefault();
+            return View(data);
+        }
+        [HttpPost]
+        public ActionResult Delete(buildingDetail new_delete)
+        {
+            bdatabaseEntities db = new bdatabaseEntities();
+            var data = (from b in db.buildingDetails
+                        where b.buildingCode == new_delete.buildingCode
+                        select b).FirstOrDefault();
+            db.Entry(data).CurrentValues.SetValues(new_delete);
+            db.buildingDetails.Remove(data);
+            db.SaveChanges();
+            return RedirectToAction("BuildingDetails");
+
         }
 
 

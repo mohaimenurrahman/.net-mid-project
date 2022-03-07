@@ -10,12 +10,8 @@
         <th>BUILDING CODE</th>
         <th>FLOOR DETAILS</th>
         <th>FLAT NO</th>
-        <th>Edit</th>
-       
-
-
-
-
+        <th>ACTION</th>
+        
 
     </tr>
 
@@ -25,8 +21,9 @@
     <td>@b.buildingCode</td>
     <td>@b.floorDetails</td>
     <td>@b.flatNo</td>
-    <td><a href="/Colony/Edit/@b.buildingCode" class="btn btn-success">Edit</a> </td>
+    <td><a href="/Colony/Edit/@b.buildingCode" class="btn btn-success">Edit</a> <a href="/Colony/Delete/@b.buildingCode" class="btn btn-danger">Delete</a> </td>
     
+
 
 </tr>
     }
