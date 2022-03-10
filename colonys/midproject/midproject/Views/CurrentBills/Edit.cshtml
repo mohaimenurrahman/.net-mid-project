@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<br />
+<button type="button" class="btn btn-primary btn-lg btn-block"><h2><b>Edit</b></h2></button>
+
+<form action="/CurrentBills/Edit" method="post">
+
+    <input type="text" name="buildingCode" value="@Model.buildingCode" placeholder="BUILDING CODE" class="form-control" />
+    <input type="text" name="flatNumber" value="@Model.flatNumber" placeholder="FLAT NUMBER" class="form-control" />
+    <input type="text" name="unit" value="@Model.unit" placeholder="UNIT" class="form-control" />
+    <input type="text" name="dstart" value="@Model.dstart" placeholder="DATE START" class="form-control" />
+    <input type="text" name="dend" value="@Model.dend" placeholder="DATE END" class="form-control" />
+    <input type="text" name="unitAmount" value="@Model.unitAmount" placeholder="UNIT AMOUNT" class="form-control" />
+    <input type="text" name="totalAmount" value="@Model.totalAmount" placeholder="TOTAL AMOUNT" class="form-control" />
+    
+
+    <input type="submit" value="Update" />
+
+</form>

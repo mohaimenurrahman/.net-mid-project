@@ -1,0 +1,43 @@
+﻿@model List<midproject.Models.Database.flatRent>
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<button type="button" class="btn btn-primary btn-lg btn-block"><h2><b>Flat Rents</b></h2></button>
+
+<table class="table table-bordered">
+    <tr>
+        <th>BUILDING CODE</th>
+        <th>FLAT NUMBER</th>
+        <th>UNIT</th>
+        <th>DATE START</th>
+        <th>DATE ENDS</th>
+        <th>UNIT AMMOUNT</th>
+        <th>TOTAL AMMOUNT</th>
+        <th>STATUS</th>
+        <th>ACTION</th>
+
+
+    </tr>
+
+    @foreach (var b in Model)
+    {
+        <tr>
+            <td>@b.buildingCode</td>
+            <td>@b.flatNumber</td>
+            <td>@b.unit</td>
+            <td>@b.dstart</td>
+            <td>@b.dend</td>
+            <td>@b.unitAmount</td>
+            <td>@b.totalAmount</td>
+            <td>@b.status</td>
+
+            <td><a href="/FlatRents/Edit/@b.flatNumber" class="btn btn-success">Edit</a> <a href="/FlatRents/Delete/@b.flatNumber" class="btn btn-danger">Delete</a> </td>
+
+
+
+        </tr>
+    }
+
+</table>

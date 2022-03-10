@@ -3,16 +3,14 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
+<br />
+<button type="button" class="btn btn-primary btn-lg btn-block"><h2><b>Index</b></h2></button>
 <table class="table table-bordered">
     <tr>
         <th>BUILDING CODE</th>
         <th>FLOOR DETAILS</th>
         <th>FLAT NO</th>
         <th>ACTION</th>
-
-
     </tr>
 
     @foreach (var b in Model)
@@ -22,7 +20,6 @@
             <td>@b.floorDetails</td>
             <td>@b.flatNo</td>
             <td><a href="/Colony/Edit/@b.buildingCode" class="btn btn-success">Edit</a> <a href="/Colony/Delete/@b.buildingCode" class="btn btn-danger">Delete</a> </td>
-
 
 
         </tr>

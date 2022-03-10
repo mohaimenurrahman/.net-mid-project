@@ -7,53 +7,34 @@ using System.Web.Mvc;
 
 namespace midproject.Controllers
 {
-    public class BuildingsController : Controller
+    public class CurrentBillsController : Controller
     {
-        // GET: Buildings
+        // GET: CurrentBills
         public ActionResult Index()
         {
             bdatabaseEntities db = new bdatabaseEntities();
-            var data = db.buildingDetails.ToList();
+            var data = db.currentBills.ToList();
             return View(data);
-        }
-        [HttpGet]
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Create(buildingDetail b)
-        {
-            if (ModelState.IsValid)
-            {
-                bdatabaseEntities db = new bdatabaseEntities();
-                db.buildingDetails.Add(b);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-
-            }
-            return View(b);
         }
 
         [HttpGet]
         public ActionResult Edit(string id)
         {
             bdatabaseEntities db = new bdatabaseEntities();
-            var data = (from b in db.buildings
-                        where b.buildingCode == id
+            var data = (from b in db.currentBills
+                        where b.flatNumber == id
                         select b).FirstOrDefault();
             return View(data);
         }
 
         [HttpPost]
-        public ActionResult Edit(building new_Edit)
+        public ActionResult Edit(currentBill new_Edit)
         {
             if (ModelState.IsValid)
             {
                 bdatabaseEntities db = new bdatabaseEntities();
-                var data = (from b in db.buildings
-                            where b.buildingCode == new_Edit.buildingCode
+                var data = (from b in db.currentBills
+                            where b.flatNumber == new_Edit.flatNumber
                             select b).FirstOrDefault();
                 db.Entry(data).CurrentValues.SetValues(new_Edit);
                 db.SaveChanges();
@@ -62,24 +43,25 @@ namespace midproject.Controllers
             return View();
         }
 
+
         [HttpGet]
         public ActionResult Delete(string id)
         {
             bdatabaseEntities db = new bdatabaseEntities();
-            var data = (from b in db.buildings
-                        where b.buildingCode == id
+            var data = (from b in db.currentBills
+                        where b.flatNumber == id
                         select b).FirstOrDefault();
             return View(data);
         }
         [HttpPost]
-        public ActionResult Delete(building new_delete)
+        public ActionResult Delete(currentBill new_delete)
         {
             bdatabaseEntities db = new bdatabaseEntities();
-            var data = (from b in db.buildings
-                        where b.buildingCode == new_delete.buildingCode
+            var data = (from b in db.currentBills
+                        where b.flatNumber == new_delete.flatNumber
                         select b).FirstOrDefault();
             db.Entry(data).CurrentValues.SetValues(new_delete);
-            db.buildings.Remove(data);
+            db.currentBills.Remove(data);
             db.SaveChanges();
             return RedirectToAction("Index");
 

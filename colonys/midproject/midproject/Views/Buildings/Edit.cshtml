@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<br /><button type="button" class="btn btn-primary btn-lg btn-block"><h2><b>Edit</b></h2></button>
+
+<form action="/Buildings/Edit" method="post">
+
+    <input type="text" name="colonyCode" value="@Model.colonyCode" placeholder="COLONY CODE" class="form-control" />
+    <input type="text" name="username" value="@Model.username" placeholder="USERNAME" class="form-control" />
+    <input type="text" name="buildingName" value="@Model.buildingName" placeholder="BUILDING NAME" class="form-control" />
+    <input type="text" name="buildingCode" value="@Model.buildingCode" placeholder="BUILDING CODE" class="form-control" />
+
+
+    <input type="submit" value="Update" />
+
+</form>
+
