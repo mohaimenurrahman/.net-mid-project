@@ -1,0 +1,28 @@
+﻿@model List<midproject.Models.Database.colony>
+@{
+    ViewBag.Title = "ColonyDetails";
+}
+
+
+<br /><button type="button" class="btn btn-primary btn-lg btn-block"><h2><b>Colony Details</b></h2></button>
+
+<table class="table table-bordered">
+    <tr>
+        <th>COLONY CODE</th>
+        <th>COLONY NUMBER</th>
+        <th>USERNAME</th>
+        <th>BUILDING CODE</th>
+    </tr>
+
+    @foreach (var b in Model)
+    {
+        <tr>
+            <td>@b.colonyCode</td>
+            <td>@b.colonyName</td>
+            <td>@b.username</td>
+            <td>@b.buildingCode</td>
+           
+        </tr>
+    }
+
+</table>

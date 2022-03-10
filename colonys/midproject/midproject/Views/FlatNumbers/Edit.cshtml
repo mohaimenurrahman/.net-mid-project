@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+<button type="button" class="btn btn-primary btn-lg btn-block"><h2>Edit</h2></button>
+<form action="/FlatNumbers/Edit" method="post">
+
+    <input type="text" name="flatSize" value="@Model.flatSize" placeholder="FLAT SIZE" class="form-control" />
+    <input type="text" name="flatNumber1" value="@Model.flatNumber1" placeholder="FLAT NUMBER" class="form-control" />
+    <input type="text" name="rentStatus" value="@Model.rentStatus" placeholder="RENT STATUS" class="form-control" />
+    <input type="text" name="buildingCode" value="@Model.buildingCode" placeholder="BUILDING CODE" class="form-control" />
+    <input type="text" name="flatRenterName" value="@Model.flatRenterName" placeholder="FLAT RENTAL NAME" class="form-control" />
+    <input type="text" name="mobile" value="@Model.mobile" placeholder="MOBILE" class="form-control" />
+
+    <input type="submit" value="Update" />
+
+</form>

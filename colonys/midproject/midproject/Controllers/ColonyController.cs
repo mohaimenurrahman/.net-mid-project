@@ -10,7 +10,14 @@ namespace midproject.Controllers
     public class ColonyController : Controller
     {
         // GET: Colony
-        
+
+        public ActionResult ColonyDetails()
+        {
+            bdatabaseEntities db = new bdatabaseEntities();
+            var data = db.colonys.ToList();
+            return View(data);
+        }
+
         public ActionResult Buildings()
         {
             bdatabaseEntities db = new bdatabaseEntities();

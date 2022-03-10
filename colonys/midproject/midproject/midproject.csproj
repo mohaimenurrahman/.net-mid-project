@@ -131,7 +131,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BuildingsController.cs" />
     <Compile Include="Controllers\ColonyController.cs" />
+    <Compile Include="Controllers\FlatNumbersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WasaBillsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -252,6 +254,13 @@
     <Content Include="Views\Colony\Delete.cshtml" />
     <Content Include="Views\Buildings\Create.cshtml" />
     <Content Include="Views\Buildings\Index.cshtml" />
+    <Content Include="Views\FlatNumbers\Index.cshtml" />
+    <Content Include="Views\FlatNumbers\Edit.cshtml" />
+    <Content Include="Views\FlatNumbers\Delete.cshtml" />
+    <Content Include="Views\Colony\ColonyDetails.cshtml" />
+    <Content Include="Views\WasaBills\Index.cshtml" />
+    <Content Include="Views\WasaBills\Edit.cshtml" />
+    <Content Include="Views\WasaBills\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
