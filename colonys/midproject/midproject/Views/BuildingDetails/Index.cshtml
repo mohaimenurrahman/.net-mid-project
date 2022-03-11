@@ -1,0 +1,32 @@
+﻿@model List<midproject.Models.Database.buildingDetail>
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<button type="button" class="btn btn-primary btn-lg btn-block"><h2><b>Building Details</b></h2></button>
+
+<table class="table table-bordered">
+    <tr>
+        <th>BUILDING CODE</th>
+        <th>FLOOR DETAILS</th>
+        <th>FLAT NO</th>
+        <th>ACTION</th>
+
+
+    </tr>
+
+    @foreach (var b in Model)
+    {
+        <tr>
+            <td>@b.buildingCode</td>
+            <td>@b.floorDetails</td>
+            <td>@b.flatNo</td>
+            <td><a href="/BuildingDetails/Edit/@b.buildingCode" class="btn btn-success">Edit</a> <a href="/BuildingDetails/Delete/@b.buildingCode" class="btn btn-danger">Delete</a> </td>
+
+
+
+        </tr>
+    }
+
+</table>

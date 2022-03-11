@@ -1,28 +1,34 @@
-﻿@model List<midproject.Models.Database.buildingDetail>
+﻿@model List<midproject.Models.Database.building>
 @{
     ViewBag.Title = "Index";
 }
 
 <br />
-<button type="button" class="btn btn-primary btn-lg btn-block"><h2><b>Index</b></h2></button>
+<br />
+<br />
+<button type="button" class="btn btn-primary btn-lg btn-block"><h2><b>Buildings</b></h2></button>
+
 <table class="table table-bordered">
     <tr>
+        <th>COLONY CODE</th>
+        <th>USERNAME</th>
+        <th>BUILDING NAME</th>
         <th>BUILDING CODE</th>
-        <th>FLOOR DETAILS</th>
-        <th>FLAT NO</th>
         <th>ACTION</th>
     </tr>
 
-    @foreach (var b in Model)
+    @foreach (var c in Model)
     {
         <tr>
-            <td>@b.buildingCode</td>
-            <td>@b.floorDetails</td>
-            <td>@b.flatNo</td>
-            <td><a href="/Colony/Edit/@b.buildingCode" class="btn btn-success">Edit</a> <a href="/Colony/Delete/@b.buildingCode" class="btn btn-danger">Delete</a> </td>
-
-
+            <td>@c.colonyCode</td>
+            <td>@c.username</td>
+            <td>@c.buildingName</td>
+            <td>@c.buildingCode</td>
+            <td><a href="/Buildings/Edit/@c.buildingCode" class="btn btn-success">Edit</a> <a href="/Buildings/Delete/@c.buildingCode" class="btn btn-danger">Delete</a> </td>
         </tr>
     }
 
 </table>
+
+
+

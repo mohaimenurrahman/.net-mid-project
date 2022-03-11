@@ -9,9 +9,10 @@
 <table class="table table-bordered">
     <tr>
         <th>COLONY CODE</th>
-        <th>COLONY NUMBER</th>
+        <th>COLONY NAME</th>
         <th>USERNAME</th>
         <th>BUILDING CODE</th>
+        <th>ACTION</th>
     </tr>
 
     @foreach (var b in Model)
@@ -21,6 +22,7 @@
             <td>@b.colonyName</td>
             <td>@b.username</td>
             <td>@b.buildingCode</td>
+            <td><a href="">Request</a></td>
            
         </tr>
     }

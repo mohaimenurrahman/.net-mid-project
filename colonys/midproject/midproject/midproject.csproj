@@ -129,6 +129,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BuildingDetailsController.cs" />
     <Compile Include="Controllers\BuildingsController.cs" />
     <Compile Include="Controllers\ColonyController.cs" />
     <Compile Include="Controllers\CurrentBillsController.cs" />
@@ -248,12 +249,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Colony\Buildings.cshtml" />
     <Content Include="Views\Colony\AddBuildings.cshtml" />
-    <Content Include="Views\Colony\BuildingDetails.cshtml" />
     <Content Include="Views\Colony\Create.cshtml" />
-    <Content Include="Views\Colony\Edit.cshtml" />
-    <Content Include="Views\Colony\Delete.cshtml" />
     <Content Include="Views\Buildings\Create.cshtml" />
     <Content Include="Views\Buildings\Index.cshtml" />
     <Content Include="Views\FlatNumbers\Index.cshtml" />
@@ -271,6 +268,9 @@
     <Content Include="Views\FlatRents\Delete.cshtml" />
     <Content Include="Views\Buildings\Edit.cshtml" />
     <Content Include="Views\Buildings\Delete.cshtml" />
+    <Content Include="Views\BuildingDetails\Index.cshtml" />
+    <Content Include="Views\BuildingDetails\Edit.cshtml" />
+    <Content Include="Views\BuildingDetails\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
