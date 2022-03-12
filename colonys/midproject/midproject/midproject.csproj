@@ -133,12 +133,16 @@
     <Compile Include="Controllers\BuildingsController.cs" />
     <Compile Include="Controllers\ColonyController.cs" />
     <Compile Include="Controllers\CurrentBillsController.cs" />
+    <Compile Include="Controllers\DetailsController.cs" />
     <Compile Include="Controllers\FlatNumbersController.cs" />
     <Compile Include="Controllers\FlatRentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WasaBillsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Database\billDetail.cs">
+      <DependentUpon>ColonyDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Database\building.cs">
       <DependentUpon>ColonyDB.tt</DependentUpon>
@@ -271,6 +275,7 @@
     <Content Include="Views\BuildingDetails\Index.cshtml" />
     <Content Include="Views\BuildingDetails\Edit.cshtml" />
     <Content Include="Views\BuildingDetails\Delete.cshtml" />
+    <Content Include="Views\Details\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

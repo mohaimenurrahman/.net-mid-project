@@ -151,5 +151,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="billDetails">
+      <EntityTypeMapping TypeName="bdatabaseModel.billDetail">
+        <MappingFragment StoreEntitySet="billDetails">
+          <ScalarProperty Name="flatRentsstatus" ColumnName="flatRentsstatus" />
+          <ScalarProperty Name="flatRents" ColumnName="flatRents" />
+          <ScalarProperty Name="currentBillsstatus" ColumnName="currentBillsstatus" />
+          <ScalarProperty Name="currentBills" ColumnName="currentBills" />
+          <ScalarProperty Name="wasaBillsstatus" ColumnName="wasaBillsstatus" />
+          <ScalarProperty Name="wasaBills" ColumnName="wasaBills" />
+          <ScalarProperty Name="flatRenterName" ColumnName="flatRenterName" />
+          <ScalarProperty Name="flatSize" ColumnName="flatSize" />
+          <ScalarProperty Name="floorDetails" ColumnName="floorDetails" />
+          <ScalarProperty Name="flatNo" ColumnName="flatNo" />
+          <ScalarProperty Name="buildingName" ColumnName="buildingName" />
+          <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+          <ScalarProperty Name="colonyCode" ColumnName="colonyCode" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

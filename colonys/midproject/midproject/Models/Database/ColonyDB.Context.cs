@@ -38,5 +38,6 @@ namespace midproject.Models.Database
         public virtual DbSet<employee> employees { get; set; }
         public virtual DbSet<subscription> subscriptions { get; set; }
         public virtual DbSet<subUser> subUsers { get; set; }
+        public virtual DbSet<billDetail> billDetails { get; set; }
     }
 }

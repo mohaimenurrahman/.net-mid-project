@@ -24,6 +24,7 @@
     <NavigationProperty Name="buildingDetail" Relationship="Self.FK_buildings_buildingDetails" FromRole="buildings" ToRole="buildingDetails" />
     <NavigationProperty Name="colonys" Relationship="Self.FK_colonys_buildings" FromRole="buildings" ToRole="colonys" />
     <NavigationProperty Name="subUsers" Relationship="Self.FK_subUsers_buildings" FromRole="buildings" ToRole="subUsers" />
+    <NavigationProperty Name="billDetails" Relationship="bdatabaseModel.FK_billDetails_buildings" FromRole="building" ToRole="billDetail" />
   </EntityType>
   <EntityType Name="colony">
     <Key>
@@ -36,6 +37,7 @@
     <NavigationProperty Name="building" Relationship="Self.FK_colonys_buildings" FromRole="colonys" ToRole="buildings" />
     <NavigationProperty Name="user" Relationship="Self.FK_colonys_users" FromRole="colonys" ToRole="users" />
     <NavigationProperty Name="subUsers" Relationship="Self.FK_subUsers_colonys" FromRole="colonys" ToRole="subUsers" />
+    <NavigationProperty Name="billDetails" Relationship="bdatabaseModel.FK_billDetails_colonys" FromRole="colony" ToRole="billDetail" />
   </EntityType>
   <EntityType Name="currentBill">
     <Key>
@@ -379,5 +381,59 @@
       <End Role="users" EntitySet="users" />
       <End Role="subscriptions" EntitySet="subscriptions" />
     </AssociationSet>
+    <EntitySet Name="billDetails" EntityType="bdatabaseModel.billDetail" />
+    <AssociationSet Name="FK_billDetails_buildings" Association="bdatabaseModel.FK_billDetails_buildings">
+      <End Role="building" EntitySet="buildings" />
+      <End Role="billDetail" EntitySet="billDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_billDetails_colonys" Association="bdatabaseModel.FK_billDetails_colonys">
+      <End Role="colony" EntitySet="colonys" />
+      <End Role="billDetail" EntitySet="billDetails" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="billDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="colonyCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="buildingCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="buildingName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="flatNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="floorDetails" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="flatSize" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="flatRenterName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="wasaBills" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="wasaBillsstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="currentBills" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="currentBillsstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="flatRents" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="flatRentsstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="building" Relationship="bdatabaseModel.FK_billDetails_buildings" FromRole="billDetail" ToRole="building" />
+    <NavigationProperty Name="colony" Relationship="bdatabaseModel.FK_billDetails_colonys" FromRole="billDetail" ToRole="colony" />
+  </EntityType>
+  <Association Name="FK_billDetails_buildings">
+    <End Type="bdatabaseModel.building" Role="building" Multiplicity="1" />
+    <End Type="bdatabaseModel.billDetail" Role="billDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="building">
+        <PropertyRef Name="buildingCode" />
+      </Principal>
+      <Dependent Role="billDetail">
+        <PropertyRef Name="buildingCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_billDetails_colonys">
+    <End Type="bdatabaseModel.colony" Role="colony" Multiplicity="1" />
+    <End Type="bdatabaseModel.billDetail" Role="billDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="colony">
+        <PropertyRef Name="colonyCode" />
+      </Principal>
+      <Dependent Role="billDetail">
+        <PropertyRef Name="colonyCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

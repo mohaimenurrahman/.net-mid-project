@@ -4,7 +4,26 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bdatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="bdatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="billDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="colonyCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="buildingCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="buildingName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="flatNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="floorDetails" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="flatSize" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="flatRenterName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="wasaBills" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="wasaBillsstatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="currentBills" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="currentBillsstatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="flatRents" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="flatRentsstatus" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="buildingDetails">
           <Key>
             <PropertyRef Name="buildingCode" />
@@ -160,151 +179,32 @@ warning 6002: The table/view 'bdatabase.dbo.subUsers' does not have a primary ke
           <Property Name="totalAmount" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_buildingDetails_flatNumbers">
-          <End Role="flatNumbers" Type="Self.flatNumbers" Multiplicity="1" />
-          <End Role="buildingDetails" Type="Self.buildingDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="flatNumbers">
-              <PropertyRef Name="flatNumber" />
-            </Principal>
-            <Dependent Role="buildingDetails">
-              <PropertyRef Name="flatNo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_buildings_buildingDetails">
-          <End Role="buildingDetails" Type="Self.buildingDetails" Multiplicity="1" />
-          <End Role="buildings" Type="Self.buildings" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="buildingDetails">
-              <PropertyRef Name="buildingCode" />
-            </Principal>
-            <Dependent Role="buildings">
-              <PropertyRef Name="buildingCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_colonys_buildings">
+        <Association Name="FK_billDetails_buildings">
           <End Role="buildings" Type="Self.buildings" Multiplicity="1" />
-          <End Role="colonys" Type="Self.colonys" Multiplicity="*" />
+          <End Role="billDetails" Type="Self.billDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="buildings">
               <PropertyRef Name="buildingCode" />
             </Principal>
-            <Dependent Role="colonys">
+            <Dependent Role="billDetails">
               <PropertyRef Name="buildingCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_colonys_users">
-          <End Role="users" Type="Self.users" Multiplicity="1" />
-          <End Role="colonys" Type="Self.colonys" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="users">
-              <PropertyRef Name="username" />
-            </Principal>
-            <Dependent Role="colonys">
-              <PropertyRef Name="username" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_currentBills_buildingDetails">
-          <End Role="buildingDetails" Type="Self.buildingDetails" Multiplicity="1" />
-          <End Role="currentBills" Type="Self.currentBills" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="buildingDetails">
-              <PropertyRef Name="buildingCode" />
-            </Principal>
-            <Dependent Role="currentBills">
-              <PropertyRef Name="buildingCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_employees_users">
-          <End Role="users" Type="Self.users" Multiplicity="1" />
-          <End Role="employees" Type="Self.employees" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="users">
-              <PropertyRef Name="username" />
-            </Principal>
-            <Dependent Role="employees">
-              <PropertyRef Name="name" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_flatRents_buildingDetails">
-          <End Role="buildingDetails" Type="Self.buildingDetails" Multiplicity="1" />
-          <End Role="flatRents" Type="Self.flatRents" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="buildingDetails">
-              <PropertyRef Name="buildingCode" />
-            </Principal>
-            <Dependent Role="flatRents">
-              <PropertyRef Name="buildingCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_logins_users">
-          <End Role="users" Type="Self.users" Multiplicity="1" />
-          <End Role="logins" Type="Self.logins" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="users">
-              <PropertyRef Name="username" />
-            </Principal>
-            <Dependent Role="logins">
-              <PropertyRef Name="username" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_subscriptions_users">
-          <End Role="users" Type="Self.users" Multiplicity="1" />
-          <End Role="subscriptions" Type="Self.subscriptions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="users">
-              <PropertyRef Name="username" />
-            </Principal>
-            <Dependent Role="subscriptions">
-              <PropertyRef Name="username" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_subUsers_buildings">
-          <End Role="buildings" Type="Self.buildings" Multiplicity="1" />
-          <End Role="subUsers" Type="Self.subUsers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="buildings">
-              <PropertyRef Name="buildingCode" />
-            </Principal>
-            <Dependent Role="subUsers">
-              <PropertyRef Name="buildingCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_subUsers_colonys">
+        <Association Name="FK_billDetails_colonys">
           <End Role="colonys" Type="Self.colonys" Multiplicity="1" />
-          <End Role="subUsers" Type="Self.subUsers" Multiplicity="*" />
+          <End Role="billDetails" Type="Self.billDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="colonys">
               <PropertyRef Name="colonyCode" />
             </Principal>
-            <Dependent Role="subUsers">
+            <Dependent Role="billDetails">
               <PropertyRef Name="colonyCode" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_wasaBills_buildingDetails">
-          <End Role="buildingDetails" Type="Self.buildingDetails" Multiplicity="1" />
-          <End Role="wasaBills" Type="Self.wasaBills" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="buildingDetails">
-              <PropertyRef Name="buildingCode" />
-            </Principal>
-            <Dependent Role="wasaBills">
-              <PropertyRef Name="buildingCode" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="bdatabaseModelStoreContainer">
+          <EntitySet Name="billDetails" EntityType="Self.billDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="buildingDetails" EntityType="Self.buildingDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="buildings" EntityType="Self.buildings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="colonys" EntityType="Self.colonys" Schema="dbo" store:Type="Tables" />
@@ -342,57 +242,16 @@ warning 6002: The table/view 'bdatabase.dbo.subUsers' does not have a primary ke
     [subUsers].[members] AS [members]
     FROM [dbo].[subUsers] AS [subUsers]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_buildingDetails_flatNumbers" Association="Self.FK_buildingDetails_flatNumbers">
-            <End Role="flatNumbers" EntitySet="flatNumbers" />
-            <End Role="buildingDetails" EntitySet="buildingDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_buildings_buildingDetails" Association="Self.FK_buildings_buildingDetails">
-            <End Role="buildingDetails" EntitySet="buildingDetails" />
+          <AssociationSet Name="FK_billDetails_buildings" Association="Self.FK_billDetails_buildings">
             <End Role="buildings" EntitySet="buildings" />
+            <End Role="billDetails" EntitySet="billDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_colonys_buildings" Association="Self.FK_colonys_buildings">
-            <End Role="buildings" EntitySet="buildings" />
+          <AssociationSet Name="FK_billDetails_colonys" Association="Self.FK_billDetails_colonys">
             <End Role="colonys" EntitySet="colonys" />
-          </AssociationSet>
-          <AssociationSet Name="FK_colonys_users" Association="Self.FK_colonys_users">
-            <End Role="users" EntitySet="users" />
-            <End Role="colonys" EntitySet="colonys" />
-          </AssociationSet>
-          <AssociationSet Name="FK_currentBills_buildingDetails" Association="Self.FK_currentBills_buildingDetails">
-            <End Role="buildingDetails" EntitySet="buildingDetails" />
-            <End Role="currentBills" EntitySet="currentBills" />
-          </AssociationSet>
-          <AssociationSet Name="FK_employees_users" Association="Self.FK_employees_users">
-            <End Role="users" EntitySet="users" />
-            <End Role="employees" EntitySet="employees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_flatRents_buildingDetails" Association="Self.FK_flatRents_buildingDetails">
-            <End Role="buildingDetails" EntitySet="buildingDetails" />
-            <End Role="flatRents" EntitySet="flatRents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_logins_users" Association="Self.FK_logins_users">
-            <End Role="users" EntitySet="users" />
-            <End Role="logins" EntitySet="logins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_subscriptions_users" Association="Self.FK_subscriptions_users">
-            <End Role="users" EntitySet="users" />
-            <End Role="subscriptions" EntitySet="subscriptions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_subUsers_buildings" Association="Self.FK_subUsers_buildings">
-            <End Role="buildings" EntitySet="buildings" />
-            <End Role="subUsers" EntitySet="subUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_subUsers_colonys" Association="Self.FK_subUsers_colonys">
-            <End Role="colonys" EntitySet="colonys" />
-            <End Role="subUsers" EntitySet="subUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_wasaBills_buildingDetails" Association="Self.FK_wasaBills_buildingDetails">
-            <End Role="buildingDetails" EntitySet="buildingDetails" />
-            <End Role="wasaBills" EntitySet="wasaBills" />
+            <End Role="billDetails" EntitySet="billDetails" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bdatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -420,6 +279,7 @@ warning 6002: The table/view 'bdatabase.dbo.subUsers' does not have a primary ke
           <NavigationProperty Name="buildingDetail" Relationship="Self.FK_buildings_buildingDetails" FromRole="buildings" ToRole="buildingDetails" />
           <NavigationProperty Name="colonys" Relationship="Self.FK_colonys_buildings" FromRole="buildings" ToRole="colonys" />
           <NavigationProperty Name="subUsers" Relationship="Self.FK_subUsers_buildings" FromRole="buildings" ToRole="subUsers" />
+          <NavigationProperty Name="billDetails" Relationship="bdatabaseModel.FK_billDetails_buildings" FromRole="building" ToRole="billDetail" />
         </EntityType>
         <EntityType Name="colony">
           <Key>
@@ -432,6 +292,7 @@ warning 6002: The table/view 'bdatabase.dbo.subUsers' does not have a primary ke
           <NavigationProperty Name="building" Relationship="Self.FK_colonys_buildings" FromRole="colonys" ToRole="buildings" />
           <NavigationProperty Name="user" Relationship="Self.FK_colonys_users" FromRole="colonys" ToRole="users" />
           <NavigationProperty Name="subUsers" Relationship="Self.FK_subUsers_colonys" FromRole="colonys" ToRole="subUsers" />
+          <NavigationProperty Name="billDetails" Relationship="bdatabaseModel.FK_billDetails_colonys" FromRole="colony" ToRole="billDetail" />
         </EntityType>
         <EntityType Name="currentBill">
           <Key>
@@ -775,7 +636,61 @@ warning 6002: The table/view 'bdatabase.dbo.subUsers' does not have a primary ke
             <End Role="users" EntitySet="users" />
             <End Role="subscriptions" EntitySet="subscriptions" />
           </AssociationSet>
+          <EntitySet Name="billDetails" EntityType="bdatabaseModel.billDetail" />
+          <AssociationSet Name="FK_billDetails_buildings" Association="bdatabaseModel.FK_billDetails_buildings">
+            <End Role="building" EntitySet="buildings" />
+            <End Role="billDetail" EntitySet="billDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_billDetails_colonys" Association="bdatabaseModel.FK_billDetails_colonys">
+            <End Role="colony" EntitySet="colonys" />
+            <End Role="billDetail" EntitySet="billDetails" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="billDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="colonyCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="buildingCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="buildingName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="flatNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="floorDetails" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flatSize" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flatRenterName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wasaBills" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wasaBillsstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="currentBills" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="currentBillsstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flatRents" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="flatRentsstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="building" Relationship="bdatabaseModel.FK_billDetails_buildings" FromRole="billDetail" ToRole="building" />
+          <NavigationProperty Name="colony" Relationship="bdatabaseModel.FK_billDetails_colonys" FromRole="billDetail" ToRole="colony" />
+        </EntityType>
+        <Association Name="FK_billDetails_buildings">
+          <End Type="bdatabaseModel.building" Role="building" Multiplicity="1" />
+          <End Type="bdatabaseModel.billDetail" Role="billDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="building">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="billDetail">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_billDetails_colonys">
+          <End Type="bdatabaseModel.colony" Role="colony" Multiplicity="1" />
+          <End Type="bdatabaseModel.billDetail" Role="billDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="colony">
+              <PropertyRef Name="colonyCode" />
+            </Principal>
+            <Dependent Role="billDetail">
+              <PropertyRef Name="colonyCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -929,6 +844,26 @@ warning 6002: The table/view 'bdatabase.dbo.subUsers' does not have a primary ke
                 <ScalarProperty Name="flatNumber" ColumnName="flatNumber" />
                 <ScalarProperty Name="mobile" ColumnName="mobile" />
                 <ScalarProperty Name="members" ColumnName="members" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="billDetails">
+            <EntityTypeMapping TypeName="bdatabaseModel.billDetail">
+              <MappingFragment StoreEntitySet="billDetails">
+                <ScalarProperty Name="flatRentsstatus" ColumnName="flatRentsstatus" />
+                <ScalarProperty Name="flatRents" ColumnName="flatRents" />
+                <ScalarProperty Name="currentBillsstatus" ColumnName="currentBillsstatus" />
+                <ScalarProperty Name="currentBills" ColumnName="currentBills" />
+                <ScalarProperty Name="wasaBillsstatus" ColumnName="wasaBillsstatus" />
+                <ScalarProperty Name="wasaBills" ColumnName="wasaBills" />
+                <ScalarProperty Name="flatRenterName" ColumnName="flatRenterName" />
+                <ScalarProperty Name="flatSize" ColumnName="flatSize" />
+                <ScalarProperty Name="floorDetails" ColumnName="floorDetails" />
+                <ScalarProperty Name="flatNo" ColumnName="flatNo" />
+                <ScalarProperty Name="buildingName" ColumnName="buildingName" />
+                <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+                <ScalarProperty Name="colonyCode" ColumnName="colonyCode" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

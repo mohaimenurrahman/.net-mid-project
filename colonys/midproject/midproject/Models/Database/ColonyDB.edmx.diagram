@@ -30,6 +30,9 @@
         <AssociationConnector Association="bdatabaseModel.FK_logins_users" ManuallyRouted="false" />
         <AssociationConnector Association="bdatabaseModel.FK_employees_users" ManuallyRouted="false" />
         <AssociationConnector Association="bdatabaseModel.FK_subscriptions_users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="bdatabaseModel.billDetail" Width="1.5" PointX="12.75" PointY="0.75" />
+        <AssociationConnector Association="bdatabaseModel.FK_billDetails_buildings" />
+        <AssociationConnector Association="bdatabaseModel.FK_billDetails_colonys" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

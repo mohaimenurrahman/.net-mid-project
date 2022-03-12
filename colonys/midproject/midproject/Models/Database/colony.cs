@@ -18,6 +18,7 @@ namespace midproject.Models.Database
         public colony()
         {
             this.subUsers = new HashSet<subUser>();
+            this.billDetails = new HashSet<billDetail>();
         }
     
         public string colonyCode { get; set; }
@@ -29,5 +30,7 @@ namespace midproject.Models.Database
         public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<subUser> subUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<billDetail> billDetails { get; set; }
     }
 }
