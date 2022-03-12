@@ -276,6 +276,7 @@
     <Content Include="Views\BuildingDetails\Edit.cshtml" />
     <Content Include="Views\BuildingDetails\Delete.cshtml" />
     <Content Include="Views\Details\Index.cshtml" />
+    <Content Include="Views\Colony\request.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

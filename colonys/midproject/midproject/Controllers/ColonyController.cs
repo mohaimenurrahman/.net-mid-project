@@ -122,6 +122,11 @@ namespace midproject.Controllers
 
         }
 
+        public ActionResult request()
+        {
+            return View();
+        }
+
 
     }
 }
