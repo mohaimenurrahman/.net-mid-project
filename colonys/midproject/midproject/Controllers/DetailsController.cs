@@ -13,7 +13,7 @@ namespace midproject.Controllers
         public ActionResult Index()
         {
             bdatabaseEntities db = new bdatabaseEntities();
-            var data = (from d in db.billDetails where d.id == 1 select d).FirstOrDefault();
+            var data = db.billDetails.ToList();
             return View(data);
         }
     }

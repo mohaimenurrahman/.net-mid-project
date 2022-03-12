@@ -1,6 +1,53 @@
-﻿
+﻿@model List<midproject.Models.Database.billDetail>
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+<button type="button" class="btn btn-primary btn-lg btn-block"><h2><b>Bill Details</b></h2></button>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>COLONY CODE</th>
+        <th>BUILDING CODE</th>
+        <th>FLOOR DETAILS</th>
+        <th>FLAT NO</th>
+        <th>FLAT SIZE</th>
+        <th>FLAT RENTER NAME</th>
+        <th>WASA BILLS</th>
+        <th>WASA BILLS STSTUS</th>
+        <th>CURRENT BILLS</th>
+        <th>CURRENT BILLS STATUS</th>
+        <th>FLAT RENTS</th>
+        <th>FLAT RENTS STATUS</th>
+        <th>ACTION</th>
+
+
+    </tr>
+
+    @foreach (var b in Model)
+    {
+<tr>
+    <td>@b.id</td>
+    <td>@b.colonyCode</td>
+    <td>@b.buildingCode</td>
+    <td>@b.floorDetails</td>
+    <td>@b.flatNo</td>
+    <td>@b.flatSize</td>
+    <td>@b.flatRentsstatus</td>
+    <td>@b.wasaBills</td>
+    <td>@b.wasaBillsstatus</td>
+    <td>@b.currentBills</td>
+    <td>@b.currentBillsstatus</td>
+    <td>@b.flatRents</td>
+    <td>@b.flatRentsstatus</td>
+
+    <td><a href="/BuildingDetails/Edit/@b.buildingCode" class="btn btn-success">Edit</a> <a href="/BuildingDetails/Delete/@b.buildingCode" class="btn btn-danger">Delete</a> </td>
+
+
+
+</tr>
+}
+
+</table>
