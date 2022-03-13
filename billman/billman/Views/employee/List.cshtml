@@ -1,0 +1,39 @@
+﻿@model List<billman.Models.Database.employee>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_employeelogins.cshtml";
+}
+
+
+<div class="content" style="margin-left:300px;">
+    <h3>Employee List</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Employee ID</th>
+            <th>Joining Date</th>
+            <th>Resigning Date</th>
+            <th>Salary</th>
+            <th>Mobile</th>
+            <th>User Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var e in Model)
+        {
+            <tr>
+                <td>@e.name</td>
+                <td>@e.empId</td>
+                <td>@e.joinDate</td>
+                <td>@e.resignDate</td>
+                <td>@e.salary</td>
+                <td>@e.mobile</td>
+                <td>@e.usertype</td>
+                <td><a class="btn btn-info" href="/employee/Edit/@e.empId">Edit</a></td>
+                <td><a class="btn btn-danger" href="/employee/Delete/@e.empId">Delete</a></td>
+            </tr>
+        }
+
+    </table>
+    <hr />
+</div>

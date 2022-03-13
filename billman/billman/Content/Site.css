@@ -1,0 +1,56 @@
+﻿.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: pink;
+    transition: 0.5s;
+    padding-top: 30px;
+    font-family: system-ui;
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.sidenav a {
+    padding: 15px 8px 15px 32px;
+    text-decoration: none;
+    font-size: 25px;
+
+    display: block;
+    transition: 0.3s;
+}
+
+    .sidenav a:hover {
+        color: white;
+        background-color: white;
+    }
+
+.sidenav {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+    .sidenav .avatar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+        .sidenav .avatar .avatar-img {
+            margin-right: 10px;
+        }
+
+.info-card {
+    height: 100%;
+    width: 50px;
+    margin-left: 300px;
+}
+
+.card-detail {
+    color: green;
+}

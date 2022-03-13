@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Dashboard Menu</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/font-awesome.css")
+
+</head>
+<body>
+   <div>
+        @RenderBody()
+    </div>
+
+    <div id="mySidenav" class="sidenav" style="position: fixed;    background-color: black;">
+        <div class="profile">
+           
+            <div class="name-pos">
+                
+                <h3 style="font-size: 25px;
+        color: orangered;padding: 0px 8px 15px 32px; ">
+                    
+                </h3>
+            </div>
+        </div>
+        <a href="/employee/Create" style="font-size:23px;"><i class="fa fa-list"></i> &nbsp;&nbsp;Employee</a>
+        <a href="/employee/subCreate"  style="font-size:23px;"><i class="fa fa-product-hunt"></i> &nbsp;&nbsp;Subscriptions</a>
+        <a href="/employee/userCreate"  style="font-size:23px;"><i class="fa fa-list"></i> &nbsp;&nbsp;Subuser</a>
+        
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_employeelogins.cshtml";
+}
+
+
+<div class="content" style="margin-left:300px;">
+    <br />
+    <a class="btn btn-danger"style="margin-left:980px;" href="/employee/List">Back</a>
+    <h3>Delete</h3>
+    <form action="/employee/Delete" method="post">
+        <label>Name : </label><input type="text" name="name" value="@Model.name" placeholder="Name" class="form-control" />
+        <label>Employee Id : </label><input type="hidden" name="empId" value="@Model.empId" placeholder="Employee ID" class="form-control" />
+        <label>Joining Date : </label><input type="text" name="joinDate" value="@Model.joinDate" placeholder="Joining Date" class="form-control" />
+        <label>Resigning Date : </label><input type="text" name="resignDate" value="@Model.resignDate" placeholder="Resigning Date" class="form-control" />
+        <label>Salary : </label><input type="text" name="salary" value="@Model.salary" placeholder="Salary" class="form-control" />
+        <label>Mobile : </label><input type="text" name="mobile" value="@Model.mobile" placeholder="Mobile" class="form-control" />
+        <label>User Type : </label><input type="text" name="usertype" value="@Model.usertype" placeholder="User Type" class="form-control" />
+        <input class="btn btn-danger" type="submit" value="Delete" />
+
+    </form>
+</div>

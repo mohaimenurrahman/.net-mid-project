@@ -1,0 +1,33 @@
+﻿@model billman.Models.Database.subUser
+@{
+    ViewBag.Title = "userCreate";
+    Layout = "~/Views/Shared/_employeelogins.cshtml";
+}
+
+
+<div class="content" style="margin-left:300px;">
+    <br />
+    <a class="btn btn-info" style="margin-left:980px;" href="/employee/userList">Show List</a>
+    <h3>ADD SUBUSER</h3>
+    <form action="/employee/userCreate" method="post">
+        <label>Colony Code : </label><input type="text" name="colonyCode" value="@Model.colonyCode" placeholder="Colony Code" class="form-control" />
+        @Html.ValidationMessageFor(model => model.colonyCode, "", new { @class = "text-danger" })
+
+        <label>Building Code : </label><input type="text" name="buildingCode" value="@Model.buildingCode" placeholder="Building Code" class="form-control" />
+        @Html.ValidationMessageFor(model => model.buildingCode, "", new { @class = "text-danger" })
+
+        <label>Flat Number : </label><input type="text" name="flatNumber" value="@Model.flatNumber" placeholder="flatNumber" class="form-control" />
+        @Html.ValidationMessageFor(model => model.flatNumber, "", new { @class = "text-danger" })
+
+        <label>Name : </label><input type="text" name="name" value="@Model.name" placeholder="Name" class="form-control" />
+        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+
+        <label>Mobile : </label><input type="text" name="mobile" value="@Model.mobile" placeholder="Mobile" class="form-control" />
+        @Html.ValidationMessageFor(model => model.mobile, "", new { @class = "text-danger" })
+
+        <label>Members : </label><input type="text" name="members" value="@Model.members" placeholder="Members" class="form-control" />
+        @Html.ValidationMessageFor(model => model.members, "", new { @class = "text-danger" })
+        <input class="btn btn-danger" type="submit" value="ADD" />
+
+    </form>
+</div>

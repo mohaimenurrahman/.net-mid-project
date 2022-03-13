@@ -1,0 +1,31 @@
+﻿@model List<billman.Models.Database.subscription>
+@{
+    ViewBag.Title = "subList";
+    Layout = "~/Views/Shared/_employeelogins.cshtml";
+}
+
+
+<div class="content" style="margin-left:300px;">
+    <h2>Subscription List</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>User Name</th>
+            <th>Payment Status</th>
+            <th>Date Of Payment</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.username</td>
+                <td>@s.paymentstatus</td>
+                <td>@s.DOP</td>
+                <td><a class="btn btn-info" href="/employee/subEdit/@s.username">Edit</a></td>
+                <td><a class="btn btn-danger" href="/employee/subDelete/@s.username">Delete</a></td>
+            </tr>
+        }
+
+    </table>
+</div>
+

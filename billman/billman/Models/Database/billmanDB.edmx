@@ -1,0 +1,808 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bdatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="buildingDetails">
+          <Key>
+            <PropertyRef Name="buildingCode" />
+          </Key>
+          <Property Name="buildingCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="floorDetails" Type="varbinary" MaxLength="100" />
+          <Property Name="flatNo" Type="int" />
+        </EntityType>
+        <EntityType Name="buildings">
+          <Key>
+            <PropertyRef Name="buildingCode" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="buildingName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="buildingCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="colonyCode" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="colonys">
+          <Key>
+            <PropertyRef Name="colonyCode" />
+          </Key>
+          <Property Name="colonyCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="colonyName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="buildingCode" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="currentBills">
+          <Key>
+            <PropertyRef Name="flatNumber" />
+          </Key>
+          <Property Name="buildingCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="flatNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="unit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dstart" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dend" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="unitAmount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="totalAmount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employees">
+          <Key>
+            <PropertyRef Name="empId" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="empId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="joinDate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="resignDate" Type="varchar" MaxLength="50" />
+          <Property Name="salary" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="usertype" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="flatNumbers">
+          <Key>
+            <PropertyRef Name="buildingCode" />
+          </Key>
+          <Property Name="buildingCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="flatNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="flatSize" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rentStatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="flatRenterName" Type="varchar" MaxLength="100" />
+          <Property Name="mobile" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="flatRents">
+          <Key>
+            <PropertyRef Name="flatNumber" />
+          </Key>
+          <Property Name="buildingCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="flatNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="unit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dstart" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dend" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="unitAmount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="totalAmount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="logins">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="usertype" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subscriptions">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="paymentstatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOP" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subUsers">
+          <Key>
+            <PropertyRef Name="flatNumber" />
+          </Key>
+          <Property Name="colonyCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="buildingCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="flatNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="members" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="name" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="mobileNumber" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="address" Type="text" Nullable="false" />
+          <Property Name="division" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="usertype" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wasaBills">
+          <Key>
+            <PropertyRef Name="flatNumber" />
+          </Key>
+          <Property Name="buildingCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="flatNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="unit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dstart" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dend" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="unitAmount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="totalAmount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_buildingDetails_buildings">
+          <End Role="buildings" Type="Self.buildings" Multiplicity="1" />
+          <End Role="buildingDetails" Type="Self.buildingDetails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="buildings">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="buildingDetails">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_buildings_colonys">
+          <End Role="colonys" Type="Self.colonys" Multiplicity="0..1" />
+          <End Role="buildings" Type="Self.buildings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="colonys">
+              <PropertyRef Name="colonyCode" />
+            </Principal>
+            <Dependent Role="buildings">
+              <PropertyRef Name="colonyCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_currentBills_buildings">
+          <End Role="buildings" Type="Self.buildings" Multiplicity="1" />
+          <End Role="currentBills" Type="Self.currentBills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buildings">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="currentBills">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_flatNumbers_buildingDetails">
+          <End Role="buildingDetails" Type="Self.buildingDetails" Multiplicity="1" />
+          <End Role="flatNumbers" Type="Self.flatNumbers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="buildingDetails">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="flatNumbers">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_flatRents_buildings">
+          <End Role="buildings" Type="Self.buildings" Multiplicity="1" />
+          <End Role="flatRents" Type="Self.flatRents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buildings">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="flatRents">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_logins_users">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="logins" Type="Self.logins" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="logins">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subscriptions_users">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="subscriptions" Type="Self.subscriptions" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="subscriptions">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subUsers_buildings">
+          <End Role="buildings" Type="Self.buildings" Multiplicity="1" />
+          <End Role="subUsers" Type="Self.subUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buildings">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="subUsers">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_wasaBills_buildings">
+          <End Role="buildings" Type="Self.buildings" Multiplicity="1" />
+          <End Role="wasaBills" Type="Self.wasaBills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buildings">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="wasaBills">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bdatabaseModelStoreContainer">
+          <EntitySet Name="buildingDetails" EntityType="Self.buildingDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="buildings" EntityType="Self.buildings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="colonys" EntityType="Self.colonys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="currentBills" EntityType="Self.currentBills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employees" EntityType="Self.employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="flatNumbers" EntityType="Self.flatNumbers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="flatRents" EntityType="Self.flatRents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="logins" EntityType="Self.logins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subscriptions" EntityType="Self.subscriptions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subUsers" EntityType="Self.subUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wasaBills" EntityType="Self.wasaBills" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_buildingDetails_buildings" Association="Self.FK_buildingDetails_buildings">
+            <End Role="buildings" EntitySet="buildings" />
+            <End Role="buildingDetails" EntitySet="buildingDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_buildings_colonys" Association="Self.FK_buildings_colonys">
+            <End Role="colonys" EntitySet="colonys" />
+            <End Role="buildings" EntitySet="buildings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_currentBills_buildings" Association="Self.FK_currentBills_buildings">
+            <End Role="buildings" EntitySet="buildings" />
+            <End Role="currentBills" EntitySet="currentBills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_flatNumbers_buildingDetails" Association="Self.FK_flatNumbers_buildingDetails">
+            <End Role="buildingDetails" EntitySet="buildingDetails" />
+            <End Role="flatNumbers" EntitySet="flatNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_flatRents_buildings" Association="Self.FK_flatRents_buildings">
+            <End Role="buildings" EntitySet="buildings" />
+            <End Role="flatRents" EntitySet="flatRents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_logins_users" Association="Self.FK_logins_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="logins" EntitySet="logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subscriptions_users" Association="Self.FK_subscriptions_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="subscriptions" EntitySet="subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subUsers_buildings" Association="Self.FK_subUsers_buildings">
+            <End Role="buildings" EntitySet="buildings" />
+            <End Role="subUsers" EntitySet="subUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_wasaBills_buildings" Association="Self.FK_wasaBills_buildings">
+            <End Role="buildings" EntitySet="buildings" />
+            <End Role="wasaBills" EntitySet="wasaBills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bdatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="buildingDetail">
+          <Key>
+            <PropertyRef Name="buildingCode" />
+          </Key>
+          <Property Name="buildingCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="floorDetails" Type="Binary" MaxLength="100" FixedLength="false" />
+          <Property Name="flatNo" Type="Int32" />
+          <NavigationProperty Name="building" Relationship="Self.FK_buildingDetails_buildings" FromRole="buildingDetails" ToRole="buildings" />
+          <NavigationProperty Name="flatNumber" Relationship="Self.FK_flatNumbers_buildingDetails" FromRole="buildingDetails" ToRole="flatNumbers" />
+        </EntityType>
+        <EntityType Name="building">
+          <Key>
+            <PropertyRef Name="buildingCode" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="buildingName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="buildingCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="colonyCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="buildingDetail" Relationship="Self.FK_buildingDetails_buildings" FromRole="buildings" ToRole="buildingDetails" />
+          <NavigationProperty Name="colony" Relationship="Self.FK_buildings_colonys" FromRole="buildings" ToRole="colonys" />
+          <NavigationProperty Name="currentBills" Relationship="Self.FK_currentBills_buildings" FromRole="buildings" ToRole="currentBills" />
+          <NavigationProperty Name="flatRents" Relationship="Self.FK_flatRents_buildings" FromRole="buildings" ToRole="flatRents" />
+          <NavigationProperty Name="subUsers" Relationship="Self.FK_subUsers_buildings" FromRole="buildings" ToRole="subUsers" />
+          <NavigationProperty Name="wasaBills" Relationship="Self.FK_wasaBills_buildings" FromRole="buildings" ToRole="wasaBills" />
+        </EntityType>
+        <EntityType Name="colony">
+          <Key>
+            <PropertyRef Name="colonyCode" />
+          </Key>
+          <Property Name="colonyCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="colonyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="buildingCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="buildings" Relationship="Self.FK_buildings_colonys" FromRole="colonys" ToRole="buildings" />
+        </EntityType>
+        <EntityType Name="currentBill">
+          <Key>
+            <PropertyRef Name="flatNumber" />
+          </Key>
+          <Property Name="buildingCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="flatNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dstart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dend" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unitAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="totalAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="building" Relationship="Self.FK_currentBills_buildings" FromRole="currentBills" ToRole="buildings" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="empId" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="empId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="joinDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="resignDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="salary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usertype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="flatNumber">
+          <Key>
+            <PropertyRef Name="buildingCode" />
+          </Key>
+          <Property Name="buildingCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="flatNumber1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="flatSize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="flatRenterName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="buildingDetail" Relationship="Self.FK_flatNumbers_buildingDetails" FromRole="flatNumbers" ToRole="buildingDetails" />
+        </EntityType>
+        <EntityType Name="flatRent">
+          <Key>
+            <PropertyRef Name="flatNumber" />
+          </Key>
+          <Property Name="buildingCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="flatNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dstart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dend" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unitAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="totalAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="building" Relationship="Self.FK_flatRents_buildings" FromRole="flatRents" ToRole="buildings" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usertype" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_logins_users" FromRole="logins" ToRole="users" />
+        </EntityType>
+        <EntityType Name="subscription">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="paymentstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_subscriptions_users" FromRole="subscriptions" ToRole="users" />
+        </EntityType>
+        <EntityType Name="subUser">
+          <Key>
+            <PropertyRef Name="flatNumber" />
+          </Key>
+          <Property Name="colonyCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="buildingCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="flatNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="members" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="building" Relationship="Self.FK_subUsers_buildings" FromRole="subUsers" ToRole="buildings" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobileNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="division" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usertype" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="login" Relationship="Self.FK_logins_users" FromRole="users" ToRole="logins" />
+          <NavigationProperty Name="subscription" Relationship="Self.FK_subscriptions_users" FromRole="users" ToRole="subscriptions" />
+        </EntityType>
+        <EntityType Name="wasaBill">
+          <Key>
+            <PropertyRef Name="flatNumber" />
+          </Key>
+          <Property Name="buildingCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="flatNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dstart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dend" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unitAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="totalAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="building" Relationship="Self.FK_wasaBills_buildings" FromRole="wasaBills" ToRole="buildings" />
+        </EntityType>
+        <Association Name="FK_buildingDetails_buildings">
+          <End Role="buildings" Type="Self.building" Multiplicity="1" />
+          <End Role="buildingDetails" Type="Self.buildingDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="buildings">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="buildingDetails">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_flatNumbers_buildingDetails">
+          <End Role="buildingDetails" Type="Self.buildingDetail" Multiplicity="1" />
+          <End Role="flatNumbers" Type="Self.flatNumber" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="buildingDetails">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="flatNumbers">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_buildings_colonys">
+          <End Role="colonys" Type="Self.colony" Multiplicity="0..1" />
+          <End Role="buildings" Type="Self.building" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="colonys">
+              <PropertyRef Name="colonyCode" />
+            </Principal>
+            <Dependent Role="buildings">
+              <PropertyRef Name="colonyCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_currentBills_buildings">
+          <End Role="buildings" Type="Self.building" Multiplicity="1" />
+          <End Role="currentBills" Type="Self.currentBill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buildings">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="currentBills">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_flatRents_buildings">
+          <End Role="buildings" Type="Self.building" Multiplicity="1" />
+          <End Role="flatRents" Type="Self.flatRent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buildings">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="flatRents">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subUsers_buildings">
+          <End Role="buildings" Type="Self.building" Multiplicity="1" />
+          <End Role="subUsers" Type="Self.subUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buildings">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="subUsers">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_wasaBills_buildings">
+          <End Role="buildings" Type="Self.building" Multiplicity="1" />
+          <End Role="wasaBills" Type="Self.wasaBill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="buildings">
+              <PropertyRef Name="buildingCode" />
+            </Principal>
+            <Dependent Role="wasaBills">
+              <PropertyRef Name="buildingCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_logins_users">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="logins" Type="Self.login" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="logins">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_subscriptions_users">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="subscriptions" Type="Self.subscription" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="username" />
+            </Principal>
+            <Dependent Role="subscriptions">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bdatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="buildingDetails" EntityType="Self.buildingDetail" />
+          <EntitySet Name="buildings" EntityType="Self.building" />
+          <EntitySet Name="colonys" EntityType="Self.colony" />
+          <EntitySet Name="currentBills" EntityType="Self.currentBill" />
+          <EntitySet Name="employees" EntityType="Self.employee" />
+          <EntitySet Name="flatNumbers" EntityType="Self.flatNumber" />
+          <EntitySet Name="flatRents" EntityType="Self.flatRent" />
+          <EntitySet Name="logins" EntityType="Self.login" />
+          <EntitySet Name="subscriptions" EntityType="Self.subscription" />
+          <EntitySet Name="subUsers" EntityType="Self.subUser" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="wasaBills" EntityType="Self.wasaBill" />
+          <AssociationSet Name="FK_buildingDetails_buildings" Association="Self.FK_buildingDetails_buildings">
+            <End Role="buildings" EntitySet="buildings" />
+            <End Role="buildingDetails" EntitySet="buildingDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_flatNumbers_buildingDetails" Association="Self.FK_flatNumbers_buildingDetails">
+            <End Role="buildingDetails" EntitySet="buildingDetails" />
+            <End Role="flatNumbers" EntitySet="flatNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_buildings_colonys" Association="Self.FK_buildings_colonys">
+            <End Role="colonys" EntitySet="colonys" />
+            <End Role="buildings" EntitySet="buildings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_currentBills_buildings" Association="Self.FK_currentBills_buildings">
+            <End Role="buildings" EntitySet="buildings" />
+            <End Role="currentBills" EntitySet="currentBills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_flatRents_buildings" Association="Self.FK_flatRents_buildings">
+            <End Role="buildings" EntitySet="buildings" />
+            <End Role="flatRents" EntitySet="flatRents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subUsers_buildings" Association="Self.FK_subUsers_buildings">
+            <End Role="buildings" EntitySet="buildings" />
+            <End Role="subUsers" EntitySet="subUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_wasaBills_buildings" Association="Self.FK_wasaBills_buildings">
+            <End Role="buildings" EntitySet="buildings" />
+            <End Role="wasaBills" EntitySet="wasaBills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_logins_users" Association="Self.FK_logins_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="logins" EntitySet="logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_subscriptions_users" Association="Self.FK_subscriptions_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="subscriptions" EntitySet="subscriptions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bdatabaseModelStoreContainer" CdmEntityContainer="bdatabaseEntities">
+          <EntitySetMapping Name="buildingDetails">
+            <EntityTypeMapping TypeName="bdatabaseModel.buildingDetail">
+              <MappingFragment StoreEntitySet="buildingDetails">
+                <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+                <ScalarProperty Name="floorDetails" ColumnName="floorDetails" />
+                <ScalarProperty Name="flatNo" ColumnName="flatNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="buildings">
+            <EntityTypeMapping TypeName="bdatabaseModel.building">
+              <MappingFragment StoreEntitySet="buildings">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="buildingName" ColumnName="buildingName" />
+                <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+                <ScalarProperty Name="colonyCode" ColumnName="colonyCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="colonys">
+            <EntityTypeMapping TypeName="bdatabaseModel.colony">
+              <MappingFragment StoreEntitySet="colonys">
+                <ScalarProperty Name="colonyCode" ColumnName="colonyCode" />
+                <ScalarProperty Name="colonyName" ColumnName="colonyName" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="currentBills">
+            <EntityTypeMapping TypeName="bdatabaseModel.currentBill">
+              <MappingFragment StoreEntitySet="currentBills">
+                <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+                <ScalarProperty Name="flatNumber" ColumnName="flatNumber" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="dstart" ColumnName="dstart" />
+                <ScalarProperty Name="dend" ColumnName="dend" />
+                <ScalarProperty Name="unitAmount" ColumnName="unitAmount" />
+                <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="bdatabaseModel.employee">
+              <MappingFragment StoreEntitySet="employees">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="empId" ColumnName="empId" />
+                <ScalarProperty Name="joinDate" ColumnName="joinDate" />
+                <ScalarProperty Name="resignDate" ColumnName="resignDate" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="usertype" ColumnName="usertype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="flatNumbers">
+            <EntityTypeMapping TypeName="bdatabaseModel.flatNumber">
+              <MappingFragment StoreEntitySet="flatNumbers">
+                <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+                <ScalarProperty Name="flatNumber1" ColumnName="flatNumber" />
+                <ScalarProperty Name="flatSize" ColumnName="flatSize" />
+                <ScalarProperty Name="rentStatus" ColumnName="rentStatus" />
+                <ScalarProperty Name="flatRenterName" ColumnName="flatRenterName" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="flatRents">
+            <EntityTypeMapping TypeName="bdatabaseModel.flatRent">
+              <MappingFragment StoreEntitySet="flatRents">
+                <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+                <ScalarProperty Name="flatNumber" ColumnName="flatNumber" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="dstart" ColumnName="dstart" />
+                <ScalarProperty Name="dend" ColumnName="dend" />
+                <ScalarProperty Name="unitAmount" ColumnName="unitAmount" />
+                <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="bdatabaseModel.login">
+              <MappingFragment StoreEntitySet="logins">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="usertype" ColumnName="usertype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscriptions">
+            <EntityTypeMapping TypeName="bdatabaseModel.subscription">
+              <MappingFragment StoreEntitySet="subscriptions">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="paymentstatus" ColumnName="paymentstatus" />
+                <ScalarProperty Name="DOP" ColumnName="DOP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subUsers">
+            <EntityTypeMapping TypeName="bdatabaseModel.subUser">
+              <MappingFragment StoreEntitySet="subUsers">
+                <ScalarProperty Name="colonyCode" ColumnName="colonyCode" />
+                <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+                <ScalarProperty Name="flatNumber" ColumnName="flatNumber" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="members" ColumnName="members" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="bdatabaseModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="bdatabaseModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="mobileNumber" ColumnName="mobileNumber" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="division" ColumnName="division" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="usertype" ColumnName="usertype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wasaBills">
+            <EntityTypeMapping TypeName="bdatabaseModel.wasaBill">
+              <MappingFragment StoreEntitySet="wasaBills">
+                <ScalarProperty Name="buildingCode" ColumnName="buildingCode" />
+                <ScalarProperty Name="flatNumber" ColumnName="flatNumber" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="dstart" ColumnName="dstart" />
+                <ScalarProperty Name="dend" ColumnName="dend" />
+                <ScalarProperty Name="unitAmount" ColumnName="unitAmount" />
+                <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

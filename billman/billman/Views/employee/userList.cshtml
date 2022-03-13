@@ -1,0 +1,38 @@
+﻿@model List<billman.Models.Database.subUser>
+@{
+    ViewBag.Title = "userList";
+    Layout = "~/Views/Shared/_employeelogins.cshtml";
+}
+
+
+<div class="content" style="margin-left:300px;">
+    <h2>Subuser List</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Colony Code</th>
+            <th>Building Code</th>
+            <th>Flat Number</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Members</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.colonyCode</td>
+                <td>@u.buildingCode</td>
+                <td>@u.flatNumber</td>
+                <td>@u.name</td>
+                <td>@u.mobile</td>
+                <td>@u.members</td>
+                <td><a class="btn btn-info" href="/employee/userEdit/@u.flatNumber">Edit</a></td>
+                <td><a class="btn btn-danger" href="/employee/userDelete/@u.flatNumber">Delete</a></td>
+            </tr>
+        }
+
+    </table>
+
+
+</div>

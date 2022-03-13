@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "userDelete";
+    Layout = "~/Views/Shared/_employeelogins.cshtml";
+}
+
+
+<div class="content" style="margin-left:300px;">
+    <br />
+    <a class="btn btn-danger" style="margin-left:980px;" href="/employee/userList">Back</a>
+    <h3>Delete</h3>
+    <form action="/employee/userDelete" method="post">
+        <label>Colony Code : </label><input type="text" name="colonyCode" value="@Model.colonyCode" placeholder="Colony Code" class="form-control" />
+        <label>Building Code : </label><input type="text" name="buildingCode" value="@Model.buildingCode" placeholder="Building Code" class="form-control" />
+        <label>Flat Number : </label><input type="text" name="flatNumber" value="@Model.flatNumber" placeholder="flatNumber" class="form-control" />
+        <label>Name : </label><input type="text" name="name" value="@Model.name" placeholder="Name" class="form-control" />
+        <label>Mobile : </label><input type="text" name="mobile" value="@Model.mobile" placeholder="Mobile" class="form-control" />
+        <label>Members : </label><input type="text" name="members" value="@Model.members" placeholder="Members" class="form-control" />
+        <input class="btn btn-danger" type="submit" value="Delete" />
+
+    </form>
+</div>

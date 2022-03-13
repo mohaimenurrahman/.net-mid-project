@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "subDelete";
+    Layout = "~/Views/Shared/_employeelogins.cshtml";
+}
+
+
+<div class="content" style="margin-left:300px;">
+    <br />
+    <a class="btn btn-danger" style="margin-left:980px;" href="/employee/subList">Back</a>
+    <h3>Delete</h3>
+    <form action="/employee/subDelete" method="post">
+        <label>User Name : </label><input type="text" name="username" value="@Model.username" placeholder="User Name" class="form-control" />
+        <label>Payment Status: </label><input type="text" name="paymentstatus" value="@Model.paymentstatus" placeholder="Payment Status" class="form-control" />
+        <label>Date Of Payment : </label><input type="text" name="DOP" value="@Model.DOP" placeholder="Date Of Payment" class="form-control" />
+        <input class="btn btn-danger" type="submit" value="Delete" />
+
+    </form>
+</div>
+
+
+
+

@@ -1,0 +1,38 @@
+﻿@model billman.Models.Database.employee
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_employeelogins.cshtml";
+}
+
+
+
+
+<div class="content" style="margin-left:300px;">
+    <br />
+    <a class="btn btn-info" style="margin-left:980px;" href="/employee/List">Show List</a>
+    <h3>ADD EMPLOYEE</h3>
+    <form action="/employee/Create" method="post">
+        <label>Name : </label><input type="text" name="name" value="@Model.name" placeholder="Name" class="form-control" />
+        @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+
+       <label>Employee Id : </label><input type="text" name="empId" placeholder="Employee ID" class="form-control" />
+        @Html.ValidationMessageFor(model => model.empId, "", new { @class = "text-danger" })
+
+       <label>Joining Date : </label><input type="text" name="joinDate" value="@Model.joinDate" placeholder="Joining Date" class="form-control" />
+        @Html.ValidationMessageFor(model => model.joinDate, "", new { @class = "text-danger" })
+
+       <label>Resigning Date : </label><input type="text" name="resignDate" placeholder="Resigning Date" class="form-control" />
+
+       <label>Salary : </label><input type="text" name="salary" value="@Model.salary" placeholder="Salary" class="form-control" />
+        @Html.ValidationMessageFor(model => model.salary, "", new { @class = "text-danger" })
+
+        <label>Mobile : </label><input type="text" name="mobile" value="@Model.mobile" placeholder="Mobile" class="form-control" />
+        @Html.ValidationMessageFor(model => model.mobile, "", new { @class = "text-danger" })
+
+        <label>User Type : </label><input type="text" name="usertype" value="@Model.usertype" placeholder="User Type" class="form-control" />
+        @Html.ValidationMessageFor(model => model.usertype, "", new { @class = "text-danger" })
+
+        <input class="btn btn-danger" type="submit" value="ADD" />
+
+    </form>
+</div>
