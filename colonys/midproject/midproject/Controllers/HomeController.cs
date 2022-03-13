@@ -26,5 +26,11 @@ namespace midproject.Controllers
 
             return View();
         }
+
+        public ActionResult Teams()
+        {
+     
+            return View();
+        }
     }
 }

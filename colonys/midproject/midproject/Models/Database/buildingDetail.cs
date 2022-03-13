@@ -21,7 +21,7 @@ namespace midproject.Models.Database
             this.flatRents = new HashSet<flatRent>();
             this.wasaBills = new HashSet<wasaBill>();
         }
-    
+       
         public string buildingCode { get; set; }
         public string floorDetails { get; set; }
         public string flatNo { get; set; }
